@@ -52,36 +52,10 @@
     <title>Shopping Cart</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-    <style>
-        .product{
-            border: 1px solid #eaeaec;
-            margin: 2px 2px 8px 2px;
-            padding: 10px;
-            text-align: center;
-            background-color: #efefef;
-        }
-        table,th,tr{
-              text-align: center;
-        }
-        .title2{
-            text-align: center;
-            color: #66afe9;
-            background-color: #efefef;
-            padding: 2%;
-        }
-        h2{
-            text-align: center;
-            color: #66afe9;
-            background-color: #efefef;
-            padding: 2%;
-        }
-        table th{
-            background-color: #efefef;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container" style="width: 65%">
+    <div class="container">
         <h2>Shopping Cart</h2>
         <?php
             $query = "select * from product order by id asc";
@@ -89,7 +63,7 @@
             if(mysqli_num_rows($result)>0){
                 while($row = mysqli_fetch_array($result)){
                     ?>
-                    <div class="col-md-3" style="float: left;">
+                    <div class="col-md-3">
                         <form method="post" action="index.php?action=add&id=<?php echo $row["id"];?>">
                             <div class="product">
                                 <img src="<?php echo $row["image"];?>" width="190px" height="200px" class="img-responsive">
