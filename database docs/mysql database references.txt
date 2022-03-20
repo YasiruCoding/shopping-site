@@ -6,7 +6,17 @@ create table product(
 );
 
 insert into product(description,image,price)values
-('iphone x','1.png',140000),
-('iphone 11','2.png',160000),
-('iphone xr','3.png',130000),
-('iphone 7','4.png',70000);
+('iphone x','/image/1.png',140000),
+('iphone 11','/image/2.png',160000),
+('iphone xr','/image/3.png',130000),
+('iphone 7','/image/4.png',70000);
+
+
+
+create table history(
+    id int AUTO_INCREMENT PRIMARY KEY,
+    product_name varchar(255),
+    quantity int,
+    price double
+);
+

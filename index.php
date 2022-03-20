@@ -1,7 +1,10 @@
 <?php
     session_start();
-    $db_name = "shopping_site";
-    $connection = mysqli_connect("localhost","root","",$db_name);
+    $servername='localhost';
+    $username='root';
+    $password='';
+    $dbname = "shopping_site";
+    $conn=mysqli_connect($servername,$username,$password,"$dbname");
 
     if(isset($_POST["add"])){
         if(isset($_SESSION["shopping_cart"])){
@@ -59,7 +62,7 @@
         <h2>Shopping Cart</h2>
         <?php
             $query = "select * from product order by id asc";
-            $result = mysqli_query($connection,$query);
+            $result = mysqli_query($conn,$query);
             if(mysqli_num_rows($result)>0){
                 while($row = mysqli_fetch_array($result)){
                     ?>
@@ -67,10 +70,10 @@
                         <form method="post" action="index.php?action=add&id=<?php echo $row["id"];?>">
                             <div class="product">
                                 <img src="<?php echo $row["image"];?>" width="190px" height="200px" class="img-responsive">
-                                <h5 class="text-info"><?php echo $row["description"];?></h5>
+                                <h5 class="text-info"><?php echo $row["product_name"];?></h5>
                                 <h5 class="text-danger"><?php echo $row["price"];?></h5>
                                 <input type="text" name="quantity" class="form-control" value="1">
-                                <input type="hidden" name="hidden_name" value="<?php echo $row["description"];?>">
+                                <input type="hidden" name="hidden_name" value="<?php echo $row["product_name"];?>">
                                 <input type="hidden" name="hidden_price" value="<?php echo $row["price"];?>">
                                 <input type="submit" name="add" style="margin-top: 5px;" class="btn btn-success" value="Add to cart">
                             </div>
@@ -86,7 +89,7 @@
         <div class="table-responsive">
             <table class="table table-bordered">
             <tr>
-                <th width="30%">Product Description</th>
+                <th width="30%">Product Name</th>
                 <th width="10%">Quantity</th>
                 <th width="13%">Price Details</th>
                 <th width="10%">Total Price</th>
@@ -118,7 +121,9 @@
                 ?>
             </table>
         </div>
-
+        <form action="insert.php" method="post">
+            <input type="submit" class="btn btn-primary" name="submit" value="Submit">
+        </form>
     </div>
 </body>
 </html>
