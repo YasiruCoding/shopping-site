@@ -114,16 +114,17 @@
                 <tr>
                         <td colspan="3" align="right">Total</td>
                         <td align="right"><?php echo number_format($total,2);?></td>
-                        <td></td>
+                        <td><form action="insert.php" method="post">
+                            <input type="submit" class="btn btn-primary" name="submit" value="Submit">
+                            </form>
+                        </td>
                 </tr>
                 <?php
                 }
                 ?>
-            </table>
+            </table> 
         </div>
-        <form action="insert.php" method="post">
-            <input type="submit" class="btn btn-primary" name="submit" value="Submit">
-        </form>
+       
     </div>
 </body>
 </html>
