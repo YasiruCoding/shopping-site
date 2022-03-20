@@ -18,4 +18,10 @@ if(!empty($_SESSION["shopping_cart"])){
    }
 }
 
+foreach($_SESSION["shopping_cart"] as $keys => $value){
+   if($value["product_id"]){
+       unset($_SESSION["shopping_cart"][$keys]);
+       echo '<script>window.location="index.php"</script>';
+   }
+}
 ?>
