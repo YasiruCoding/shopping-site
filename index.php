@@ -85,7 +85,7 @@
         ?>
 
         <div style="clear: both"></div>
-        <h3 class="title2">Shopping Cart Details</h3>
+        <h3 class="title2">Billing</h3>
         <div class="table-responsive">
             <table class="table table-bordered">
             <tr>
